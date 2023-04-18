@@ -2,15 +2,15 @@
 +  爬取的内容：**电影详情链接，图片链接，影片中文名，影片外国名，评分，评价数，概况，相关信息。**
 +  爬虫的代码：
 ~~~
-# -*- codeing = utf-8 -*-
-from bs4 import BeautifulSoup  # 网页解析，获取数据
-import re  # 正则表达式，进行文字匹配`
-import urllib.request, urllib.error  # 制定URL，获取网页数据
-import xlwt  # 进行excel操作
-#import sqlite3  # 进行SQLite数据库操作
+# -*- codeing = utf-8 -*-  #常见的字符编码包括 ASCII、UTF-8、UTF-16 等。不同的字符编码有不同的字符集和二进制编码方式，所以需要根据实际情况选择合适的字符编码。
+from bs4 import BeautifulSoup  #bs4 是一个 Python 库，它提供了一组工具来解析 HTML 和 XML 文档，并提供简单的方式来检索文档中的信息。BeautifulSoup 是 bs4 库中最常用的类,可以方便地从 HTML 或 XML 文档中提取所需的信息。
+import re  # 表示导入 Python 标准库中的 re 模块，该模块提供了正则表达式的支持，可以用来进行字符串匹配、查找、替换等操作。
+import urllib.request, urllib.error  # 其中 urllib.request 子模块提供了一个 urlopen() 方法用于获取指定 URL 的页面内容，而 urllib.error 子模块则提供了一些常见的错误异常类，例如 URLError、HTTPError 等，用于在出现错误时进行处理。
+import xlwt  # import xlwt 表示在 Python 代码中导入了 xlwt 模块，用于对 Excel 文件进行读写操作。xlwt 是一个第三方库，需要先安装才能使用
+#import sqlite3  # 使用 sqlite3 模块可以完成 SQLite3 数据库的创建、连接、表的创建和数据的插入、查询、修改和删除等操作。
 
-findLink = re.compile(r'<a href="(.*?)">')  # 创建正则表达式对象，标售规则   影片详情链接的规则
-findImgSrc = re.compile(r'<img.*src="(.*?)"', re.S)
+findLink = re.compile(r'<a href="(.*?)">')  # findLink 是一个正则表达式对象，用于匹配 HTML 中的链接,它被赋值为 re.compile(r'<a href="(.*?)">')
+findImgSrc = re.compile(r'<img.*src="(.*?)"', re.S)  #
 findTitle = re.compile(r'<span class="title">(.*)</span>')
 findRating = re.compile(r'<span class="rating_num" property="v:average">(.*)</span>')
 findJudge = re.compile(r'<span>(\d*)人评价</span>')
