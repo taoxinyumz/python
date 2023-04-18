@@ -10,12 +10,12 @@ import xlwt  # import xlwt 表示在 Python 代码中导入了 xlwt 模块，用
 #import sqlite3  # 使用 sqlite3 模块可以完成 SQLite3 数据库的创建、连接、表的创建和数据的插入、查询、修改和删除等操作。
 
 findLink = re.compile(r'<a href="(.*?)">')  # findLink 是一个正则表达式对象，用于匹配 HTML 中的链接,它被赋值为 re.compile(r'<a href="(.*?)">')
-findImgSrc = re.compile(r'<img.*src="(.*?)"', re.S)  #
-findTitle = re.compile(r'<span class="title">(.*)</span>')
-findRating = re.compile(r'<span class="rating_num" property="v:average">(.*)</span>')
-findJudge = re.compile(r'<span>(\d*)人评价</span>')
-findInq = re.compile(r'<span class="inq">(.*)</span>')
-findBd = re.compile(r'<p class="">(.*?)</p>', re.S)
+findImgSrc = re.compile(r'<img.*src="(.*?)"', re.S)  # <img.*是一个正则表达式，用于匹配HTML文档中的img标签；src="(.*?)"用于匹配 HTML 文档中的图片标签（<img> 标签）中的 src 属性值；re.S是re模块中的一个标志参数，表示在匹配时将.也匹配换行符（\n）
+findTitle = re.compile(r'<span class="title">(.*)</span>') # class是一种用于给元素设置分类的属性，一个元素可以有多个class，各class之间用空格分隔，此处的class指代的是标题元素，</span>是HTML代码中的结束标签
+findRating = re.compile(r'<span class="rating_num" property="v:average">(.*)</span>') # 在这里，property属性的值为"v:average"，它是指定网页中某个标签的属性值
+findJudge = re.compile(r'<span>(\d*)人评价</span>') # 该段代码使用正则表达式在HTML文本中匹配包含“<span>数字人评价</span>”格式的字符串，并将这些字符串保存在一个列表中
+findInq = re.compile(r'<span class="inq">(.*)</span>') # 该正则表达式可以匹配HTML中class属性为"inq"的span标签中的内容。
+findBd = re.compile(r'<p class="">(.*?)</p>', re.S) # 这段代码主要用于提取页面中电影的相关描述信息，如导演、主演、剧情介绍等
 
 
 
